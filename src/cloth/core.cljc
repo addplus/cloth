@@ -124,3 +124,9 @@
    (->> (sign-with-signer! t signer)
         (p/mapcat when-mined))))
 
+(print "Testing now")
+(maybe-create-keypair)
+(print (current-signer))
+(p/then (faucet! 5) #((p/then (balance) print)))
+(p/then (chain/accounts) print)
+;(p/schedule 2000 #((p/then (balance) print)))
